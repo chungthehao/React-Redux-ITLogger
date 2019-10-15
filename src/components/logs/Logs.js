@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react'
 
+import LogItem from './LogItem'
+import Preloader from '../layout/Preloader'
+
 const Logs = () => {
     // Component level state
     const [logs, setLogs] = useState([])
@@ -25,7 +28,7 @@ const Logs = () => {
         // eslint-disable-next-line
     }, []) // Only want this to run once
 
-    if (loading) return <h4>Loading...</h4>
+    if (loading) return <Preloader />
 
     return (
         // https://materializecss.com/collections.html
@@ -36,7 +39,7 @@ const Logs = () => {
 
             {
                 !loading && logs.length 
-                    ? logs.map(l => <li key={l.id} className="collection-item">{l.message}</li>)
+                    ? logs.map(l => <LogItem log={l} key={l.id} />)
                     : <p className="center">No logs to show.</p>
             }
         </ul>
