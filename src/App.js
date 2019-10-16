@@ -11,7 +11,7 @@ import AddLogModal from './components/logs/AddLogModal';
 import EditLogModal from './components/logs/EditLogModal';
 import AddTechModal from './components/techs/AddTechModal';
 import TechListModal from './components/techs/TechListModal';
-import store from './store'
+import store from './store' // Redux store (app level state)
 
 const App = () => {
   // Tự động init materialize js khi mới chạy app

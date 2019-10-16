@@ -1,8 +1,12 @@
 // This's gonna be a form --> some component level state để quản lý input --> useState hook
 import React, { useState } from 'react'
 import M from 'materialize-css/dist/js/materialize.min.js'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
-const AddLogModal = () => {
+import { addLog } from '../../actions/logActions'
+
+const AddLogModal = ({ addLog }) => {
     const [message, setMessage] = useState('')
     const [attention, setAttention] = useState(false)
     const [tech, setTech] = useState('')
@@ -12,7 +16,11 @@ const AddLogModal = () => {
         if (!message || !tech) {
             M.toast({ html: 'Please enter a message and tech.' })
         } else {
-            console.log(message, tech, attention)
+            //console.log(message, tech, attention)
+
+            addLog({ message, tech, attention, date: new Date() })
+
+            M.toast({ html: `Log added by ${tech}.` })
 
             // Clear fields (reset to default when close the modal)
             setMessage('')
@@ -74,4 +82,8 @@ const modalStyle = {
     height: '75%'
 }
 
-export default AddLogModal
+AddLogModal.propTypes = {
+    addLog: PropTypes.func.isRequired
+}
+
+export default connect(null, { addLog })(AddLogModal)

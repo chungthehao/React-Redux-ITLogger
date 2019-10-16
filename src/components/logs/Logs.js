@@ -31,18 +31,19 @@ const Logs = ({ log: {logs, loading}, getLogs }) => {
 }
 
 Logs.propTypes = {
-    log: PropTypes.object.isRequired
+    log: PropTypes.object.isRequired,
+    getLogs: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
     log: state.log 
     // - log: tên property 'log' sẽ là trở thành props đc truyền vào component này
     // - state.log: chữ 'log' này pertains to in our rootReducer
-    /*
-        export default combineReducers({
-            log: logReducer
-        })
-    */
+        /*  src/reducers.index.js
+            export default combineReducers({
+                log: logReducer
+            })
+        */
 })
 
 // getLogs action sẽ trong props đc truyền vô component này
