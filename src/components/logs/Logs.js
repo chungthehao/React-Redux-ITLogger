@@ -1,34 +1,18 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
 import LogItem from './LogItem'
 import Preloader from '../layout/Preloader'
+import { getLogs } from '../../actions/logActions'
 
-const Logs = () => {
-    // Component level state
-    const [logs, setLogs] = useState([])
-    const [loading, setLoading] = useState(false)
-
-    // Fetch data (logs)
-    const getLogs = async () => {
-        setLoading(true)
-
-        try {
-            const res = await fetch('/logs')
-            const data = await res.json()
-
-            setLogs(data)
-            setLoading(false)
-        } catch (err) {
-            console.error(err.response.data)
-        }
-    }
-
+const Logs = ({ log: {logs, loading}, getLogs }) => {
     useEffect(() => {
         getLogs()
         // eslint-disable-next-line
     }, []) // Only want this to run once
 
-    if (loading) return <Preloader />
+    if (loading || logs === null) return <Preloader />
 
     return (
         // https://materializecss.com/collections.html
@@ -46,4 +30,20 @@ const Logs = () => {
     )
 }
 
-export default Logs
+Logs.propTypes = {
+    log: PropTypes.object.isRequired
+}
+
+const mapStateToProps = state => ({
+    log: state.log 
+    // - log: tên property 'log' sẽ là trở thành props đc truyền vào component này
+    // - state.log: chữ 'log' này pertains to in our rootReducer
+    /*
+        export default combineReducers({
+            log: logReducer
+        })
+    */
+})
+
+// getLogs action sẽ trong props đc truyền vô component này
+export default connect(mapStateToProps, { getLogs })(Logs)
