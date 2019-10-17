@@ -1,32 +1,18 @@
 {
   "logs": [
     {
-      "id": 2,
-      "message": "Fixed hard drive on workstation 002",
-      "attention": false,
-      "tech": "Harry White",
-      "date": "2019-10-17T14:28:21.663Z"
-    },
-    {
-      "id": 3,
-      "message": "1122 wireless down",
-      "attention": false,
-      "tech": "John Doe",
-      "date": "2019-10-17T14:30:54.872Z"
-    },
-    {
-      "id": 4,
-      "message": "aassada",
-      "attention": false,
-      "tech": "Harry White",
-      "date": "2019-10-17T14:30:15.759Z"
-    },
-    {
-      "message": "sdasdasf",
-      "tech": "John Doe",
+      "message": "aaa",
+      "tech": "Sam Smith",
       "attention": true,
-      "date": "2019-10-17T16:44:15.896Z",
-      "id": 5
+      "date": "2019-10-17T17:28:01.205Z",
+      "id": 1
+    },
+    {
+      "message": "bbb",
+      "tech": "Sara Wilson",
+      "attention": false,
+      "date": "2019-10-17T17:28:18.242Z",
+      "id": 2
     }
   ],
   "techs": [

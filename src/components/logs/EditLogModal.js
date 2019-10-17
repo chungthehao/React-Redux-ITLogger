@@ -3,7 +3,10 @@ import React, { useState, useEffect } from 'react'
 import M from 'materialize-css/dist/js/materialize.min.js'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+
 import { updateLog } from '../../actions/logActions'
+import TechSelectOptions from '../techs/TechSelectOptions'
+
 
 const EditLogModal = ({ current, updateLog }) => {
     const [message, setMessage] = useState('')
@@ -58,9 +61,7 @@ const EditLogModal = ({ current, updateLog }) => {
                         {/* browser-default: fix materialize ko cho mình pre select cái nào đó (th edit) để sẵn đây luôn */}
                         <select className="browser-default" name="tech" value={tech} onChange={e => setTech(e.target.value)}>
                             <option value="" disabled>Select technician</option>
-                            <option value="John Doe">John Doe</option>
-                            <option value="Harry White">Harry White</option>
-                            <option value="Mary Johnson">Mary Johnson</option>
+                            <TechSelectOptions />
                         </select>
                     </div>
                 </div>
