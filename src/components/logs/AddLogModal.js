@@ -70,7 +70,7 @@ const AddLogModal = ({ addLog }) => {
             </div>{/* End: .modal-content */}
 
             <div className="modal-footer">
-                <a href="#" onClick={onSubmit} 
+                <a href="#!" onClick={onSubmit} 
                     className="modal-close waves-effect waves-light btn blue">Enter</a>
             </div>
         </div>
