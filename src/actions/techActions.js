@@ -38,7 +38,16 @@ export const addTech = newTech => async dispatch => {
 
 // Delete a tech
 export const deleteTech = id => async dispatch => {
-    
+    setLoading()
+
+    try {
+        await fetch('/techs/'+id, { method: 'DELETE' })
+
+        dispatch({ type: DELETE_TECH, payload: id })
+    } catch (err) {
+        console.error(err.response.statusText)
+        dispatch({ type: TECHS_ERROR, payload: err.response.statusText })
+    }
 }
 
 // Set 'loading' to true
