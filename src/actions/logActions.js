@@ -27,8 +27,8 @@ export const getLogs = () => async (dispatch, getState) => { // getState để l
 
         dispatch({ type: GET_LOGS, payload: data })
     } catch (err) {
-        console.error(err.response.data)
-        dispatch({ type: LOGS_ERROR, payload: err.response.data })
+        console.error(err.response.statusText)
+        dispatch({ type: LOGS_ERROR, payload: err.response.statusText })
     }        
 }
 
@@ -48,8 +48,8 @@ export const addLog = log => async dispatch => {
 
         dispatch({ type: ADD_LOG, payload: data })
     } catch (err) {
-        console.error(err.response.data)
-        dispatch({ type: LOGS_ERROR, payload: err.response.data })
+        console.error(err.response.statusText)
+        dispatch({ type: LOGS_ERROR, payload: err.response.statusText })
     }        
 }
 
@@ -62,8 +62,8 @@ export const deleteLog = id => async (dispatch, getState) => { // getState để
 
         dispatch({ type: DELETE_LOG, payload: id })
     } catch (err) {
-        console.error(err.response.data)
-        dispatch({ type: LOGS_ERROR, payload: err.response.data })
+        console.error(err.response.statusText)
+        dispatch({ type: LOGS_ERROR, payload: err.response.statusText })
     }        
 }
 
@@ -83,8 +83,8 @@ export const updateLog = ({ id, message, attention, tech }) => async dispatch =>
 
         dispatch({ type: UPDATE_LOG, payload: data })
     } catch (err) {
-        console.error(err.response.data)
-        dispatch({ type: LOGS_ERROR, payload: err.response.data })
+        console.error(err.response.statusText)
+        dispatch({ type: LOGS_ERROR, payload: err.response.statusText })
     }
 }
 
@@ -98,8 +98,8 @@ export const searchLogs = text => async dispatch => {
 
         dispatch({ type: SEARCH_LOGS, payload: data })
     } catch (err) {
-        console.error(err.response.data)
-        dispatch({ type: LOGS_ERROR, payload: err.response.data })
+        console.error(err.response.statusText)
+        dispatch({ type: LOGS_ERROR, payload: err.response.statusText })
     }
 }
 
