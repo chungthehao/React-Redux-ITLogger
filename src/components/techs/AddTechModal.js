@@ -1,8 +1,13 @@
 // This's gonna be a form --> some component level state để quản lý input --> useState hook
 import React, { useState } from 'react'
 import M from 'materialize-css/dist/js/materialize.min.js'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
-const AddTechModal = () => {
+import { addTech } from '../../actions/techActions'
+
+
+const AddTechModal = ({ addTech }) => {
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
 
@@ -11,7 +16,11 @@ const AddTechModal = () => {
         if (!firstName || !lastName) {
             M.toast({ html: 'Please enter the first and last name.' })
         } else {
-            console.log(firstName, lastName)
+            //console.log(firstName, lastName)
+
+            addTech({ firstName, lastName })
+
+            M.toast({ html: 'Tech added.' })
 
             // Clear fields (reset to default when close the modal)
             setFirstName('')
@@ -45,11 +54,15 @@ const AddTechModal = () => {
             </div>{/* End: .modal-content */}
 
             <div className="modal-footer">
-                <a href="#" onClick={onSubmit} 
+                <a href="#!" onClick={onSubmit} 
                     className="modal-close waves-effect waves-light btn blue">Enter</a>
             </div>
         </div>
     )
 }
 
-export default AddTechModal
+AddTechModal.propTypes = {
+    addTech: PropTypes.func.isRequired
+}
+
+export default connect(null, { addTech })(AddTechModal)

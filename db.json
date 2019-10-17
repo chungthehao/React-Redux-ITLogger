@@ -13,6 +13,13 @@
       "attention": false,
       "date": "2019-10-17T17:28:18.242Z",
       "id": 2
+    },
+    {
+      "message": "Good job",
+      "tech": "Henry Chung",
+      "attention": false,
+      "date": "2019-10-17T17:38:03.922Z",
+      "id": 3
     }
   ],
   "techs": [
@@ -30,6 +37,11 @@
       "id": 3,
       "firstName": "Sara",
       "lastName": "Wilson"
+    },
+    {
+      "firstName": "Henry",
+      "lastName": "Chung",
+      "id": 4
     }
   ]
 }
