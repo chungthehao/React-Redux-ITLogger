@@ -7,6 +7,7 @@ import { getTechs } from '../../actions/techActions'
 
 const TechListModal = ({ tech: { techs, loading }, getTechs }) => {
     useEffect(() => {
+        // Thật ra nên đặt tên là setTechs, lấy all techs từ server về set vô state ở store lúc ban đầu
         getTechs()
         // eslint-disable-next-line
     }, []) // Only want this to run once
